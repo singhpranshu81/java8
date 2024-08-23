@@ -1,0 +1,30 @@
+package com.java8.prctc;
+
+interface Calft{ 
+	int x=10;
+	public int add(int a,int b);
+	
+	public default void display() {
+		System.out.println("helllooo");
+	}
+	public static void print() {
+		System.out.println("printing static");
+	}
+}
+public class Java8eggg {
+public void sub() {
+			System.out.println("y bhi chalega java 7 ka h");
+		}
+	public static void main(String[] args) {
+		
+		  Calft c=(a,b)->{//lambda function 
+				 return a+b;  
+			   };
+			   System.out.println("sum is "+c.add(14,20));
+			   c.display();
+			   Calft.print();
+			   Java8eggg j=new Java8eggg();
+			   j.sub();
+	}
+
+}
