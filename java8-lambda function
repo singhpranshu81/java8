@@ -1,0 +1,55 @@
+package com.java8.eg;
+
+public class Lambdaeg {
+
+	public static void main(String[] args) {
+		//java 7-. 1st  way to call fuction
+		Task t=new Task();
+		t.print();
+		//java 7 -- 2nd way to call fuction
+		Mythread mt = new Mythread();
+		Thread th= new Thread(mt);
+		th.start();
+		// java 7 -3rd way using anonymous class
+		Runnable r=new Runnable() {
+
+			@Override
+			public void run() {
+				Task t=new Task();
+				t.print();
+			}
+			
+		};
+		Thread th1 = new Thread(r);
+		th1.start();
+		// java 8 --1 --> implementing above in java 8
+		Runnable r1=()->{       // removing run here as one function can't b declared within other but can invoked
+			Task nt=new Task();
+			nt.print();
+		};
+		Thread th2 = new Thread(r1);
+		th2.start();
+		// java 8 --2nd way
+		Thread th3= new Thread(()->{
+			Task nt=new Task();
+			nt.print();
+		});
+		th3.start();
+		// java 8 -- 3rd way
+		new Thread(()->{
+			Task nt=new Task();
+			nt.print();
+		}).start();
+		//java 8 -- 4th way
+		new Thread(()->{
+			new Task().print();
+		}).start();
+	
+	// java 8 -- 5th way
+	new Thread(new Task()::print).start();//instance calling a method using double colon::
+
+}
+
+}
+
+
