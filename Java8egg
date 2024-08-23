@@ -1,0 +1,25 @@
+package com.java8.prctc;
+
+interface Calf{  // this is functional interface which contains only single abstarct method
+	//but java 8 has default method that can declare the fuction in interface only,also static methods
+	public int add(int a,int b);
+	
+	public default void display() {
+		System.out.println("helllooo");
+	}
+	public static void print() {
+		System.out.println("printing static");
+	}
+}
+public class Java8egg {
+
+	public static void main(String[] args) {
+		  Calf c=(a,b)->{//lambda function  --> store in interface class type,
+				 return a+b;  
+			   };
+			   System.out.println("sum is "+c.add(14,20));
+			   c.display();
+			   Calf.print();// interface calling static methods, object can't call
+	}
+
+}
