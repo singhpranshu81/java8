@@ -42,6 +42,16 @@ public class StreamsUserDefined {
 	    	 System.out.println("Employee with sattrinfg letter S is: ");
 	    	 emplist.stream().filter(e-> e.getFname().startsWith("S")).forEach(e->System.out.println(e.getFname()+" "+e.getLname()));
 	     }
+		     //grouping
+	    Map<String,List<Employee>> grpbydp=emplist.stream().collect(Collectors.groupingBy(Employee::getDept));
+	    
+	    System.out.println(grpbydp);
+	    
+	    grpbydp.forEach((dep,emlist)->{
+	    	System.out.println(dep);
+	    	emlist.forEach(le-> System.out.println(le));
+	    });
+	     
 	}
 
 }
